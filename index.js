@@ -35,6 +35,7 @@ module.exports = function (options) {
       var child = spawn(require.resolve('j/bin/j.njs'), spawnArgs)
       child.stdout.pipe(csv.createStream(options))
         .pipe(through(function (data) {
+        console.log(data)
           var _data = {}
           for(var k in data) {
             var value = data[k].trim()
